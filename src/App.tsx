@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* Imports */
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
-function App() {
+/* Relative Imports */
+import Routing from "routes";
+import ThemeConfig from "theme";
+import { Provider } from "react-redux";
+import store from "store/store";
+
+// ----------------------------------------------------------------------
+
+/**
+ * App component to to set all the higher level components and routes.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
+const App: React.FC = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HelmetProvider>
+      <ThemeConfig>
+        <Provider store={store}>
+          <Router>
+            <Routing />
+          </Router>
+        </Provider>
+      </ThemeConfig>
+    </HelmetProvider>
   );
-}
+};
 
 export default App;
