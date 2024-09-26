@@ -77,7 +77,7 @@ const Home = () => {
   return (
     <Box sx={styles.containerStyles}>
       <Typography variant="h6" sx={styles.wishText}>
-        <b>{getGreeting()}, Erica</b>
+        <b>{getGreeting()}, Nithin</b>
       </Typography>
       <Typography variant="body1" sx={styles.overviewHeading}>
         Overview
